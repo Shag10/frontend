@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-inventory',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './inventory.html',
   styleUrl: './inventory.css',
 })
@@ -15,7 +16,7 @@ export class InventoryComponent {
   inventoryData = {
     productId: '',
     productName: '',
-    quantityStock: 0,
+    stockQuantity: 0,
     reorderStock: 0,
   }
 

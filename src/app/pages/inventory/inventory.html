@@ -4,24 +4,24 @@
 <div class="row mx-5">
   <div class="col">
     <label for="productId" class="form-label">Product Id</label>
-    <input type="text" class="form-control" id="productId" placeholder="Product Id" aria-label="Product Id">
+    <input type="text" class="form-control" id="productId" placeholder="Product Id" aria-label="Product Id" [(ngModel)]="inventoryData.productId" name="productId">
   </div>
   <div class="col">
     <label for="productName" class="form-label">Product Name</label>
-    <input type="text" class="form-control" id="productName" placeholder="Product Name" aria-label="Product Name">
+    <input type="text" class="form-control" id="productName" placeholder="Product Name" aria-label="Product Name" [(ngModel)]="inventoryData.productName" name="productName">
   </div>
   <div class="col">
-    <label for="availableStock" class="form-label">Available Stock</label>
-    <input type="text" class="form-control" id="availableStock" placeholder="Available Stock" aria-label="Available Stock">
+    <label for="stockQuantity" class="form-label">Available Stock</label>
+    <input type="text" class="form-control" id="stockQuantity" placeholder="Available Stock" aria-label="Available Stock" [(ngModel)]="inventoryData.stockQuantity" name="stockQuantity">
   </div>
   <div class="col">
     <label for="reorderStock" class="form-label">Reorder Stock</label>
-    <input type="text" class="form-control" id="reorderStock" placeholder="Reorder Stock" aria-label="Reorder Stock">
+    <input type="text" class="form-control" id="reorderStock" placeholder="Reorder Stock" aria-label="Reorder Stock" [(ngModel)]="inventoryData.reorderStock" name="reorderStock">
   </div>
 </div>
 <div class="row mx-5 mt-3">
   <div class="col">
-    <button type="button" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-primary" (click)="onSubmit()">Submit</button>
   </div>
 </div>
 <div class="row mx-5 mt-3">
