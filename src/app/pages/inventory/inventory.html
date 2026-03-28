@@ -39,12 +39,12 @@
         <tbody>
           @for (product of inventoryDto; track product.productId) {
             <tr>
-              <td>{{ product.productId }}</td>
-              <td>{{ product.productName }}</td>
-              <td>{{ product.quantityStock }}</td>
-              <td>{{ product.reorderStock }}</td>
+              <td>{{ product.ProductId }}</td>
+              <td>{{ product.ProductName }}</td>
+              <td>{{ product.StockQuantity }}</td>
+              <td>{{ product.ReorderStock }}</td>
               <td>
-                <button type="button" class="btn btn-secondary">Edit</button>&nbsp;
+                <button type="button" class="btn btn-primary">Edit</button>&nbsp;
                 <button type="button" class="btn btn-danger">Delete</button>
               </td>   
             </tr>

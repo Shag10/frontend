@@ -20,7 +20,7 @@ export class InventoryComponent {
   }
 
   ngOnInit() {
-    let url = 'https://localhost:7284//api/inventory';
+    let url = 'https://localhost:7284/api/inventory';
     this.httpClient.get(url).subscribe(data => {
       this.inventoryDto = data;
       console.log(this.inventoryDto);
@@ -30,7 +30,7 @@ export class InventoryComponent {
 
 
   onSubmit() : void {
-    let url = 'https://localhost:7284//api/inventory';
+    let url = 'https://localhost:7284/api/inventory';
     let httpOptions = {
       headers: {
         Authorization: 'Shag123-auth' + localStorage.getItem('token'),
