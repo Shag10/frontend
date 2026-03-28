@@ -3,20 +3,20 @@
 </div>
 <div class="row mx-5">
   <div class="col">
-    <label for="productId" class="form-label" con>Product Id</label>
-    <input type="text" class="form-control" placeholder="Product Id" aria-label="Product Id">
+    <label for="productId" class="form-label">Product Id</label>
+    <input type="text" class="form-control" id="productId" placeholder="Product Id" aria-label="Product Id">
   </div>
   <div class="col">
     <label for="productName" class="form-label">Product Name</label>
-    <input type="text" class="form-control" placeholder="Product Name" aria-label="Product Name">
+    <input type="text" class="form-control" id="productName" placeholder="Product Name" aria-label="Product Name">
   </div>
   <div class="col">
     <label for="availableStock" class="form-label">Available Stock</label>
-    <input type="text" class="form-control" placeholder="Available Stock" aria-label="Available Stock">
+    <input type="text" class="form-control" id="availableStock" placeholder="Available Stock" aria-label="Available Stock">
   </div>
   <div class="col">
     <label for="reorderStock" class="form-label">Reorder Stock</label>
-    <input type="text" class="form-control" placeholder="Reorder Stock" aria-label="Reorder Stock">
+    <input type="text" class="form-control" id="reorderStock" placeholder="Reorder Stock" aria-label="Reorder Stock">
   </div>
 </div>
 <div class="row mx-5 mt-3">
@@ -37,36 +37,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>iPhone 13 Pro Max</td>
-            <td>50</td>
-            <td>20</td>
-            <td>
-              <button type="button" class="btn btn-secondary">Edit</button>&nbsp;
-              <button type="button" class="btn btn-danger">Delete</button>
-            </td>   
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Samsung Galaxy S21 Ultra</td>
-            <td>30</td>
-            <td>10</td>
-            <td>
-              <button type="button" class="btn btn-secondary">Edit</button>&nbsp;
-              <button type="button" class="btn btn-danger">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Google Pixel 6 Pro</td>
-            <td>20</td>
-            <td>5</td>
-            <td>
-              <button type="button" class="btn btn-secondary">Edit</button>&nbsp;
-              <button type="button" class="btn btn-danger">Delete</button>
-            </td>
-          </tr>
+          @for (product of inventoryDto; track product.productId) {
+            <tr>
+              <td>{{ product.productId }}</td>
+              <td>{{ product.productName }}</td>
+              <td>{{ product.quantityStock }}</td>
+              <td>{{ product.reorderStock }}</td>
+              <td>
+                <button type="button" class="btn btn-secondary">Edit</button>&nbsp;
+                <button type="button" class="btn btn-danger">Delete</button>
+              </td>   
+            </tr>
+          }
         </tbody>
     </table>
 </div>
