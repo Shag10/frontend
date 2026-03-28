@@ -21,7 +21,7 @@
 </div>
 <div class="row mx-5 mt-3">
   <div class="col">
-    <button type="button" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+    <button type="button" class="btn btn-primary" (click)="OnSubmit()">Submit</button>
   </div>
 </div>
 <div class="row mx-5 mt-3">
@@ -37,7 +37,7 @@
           </tr>
         </thead>
         <tbody>
-          @for (product of inventoryDto; track product.productId) {
+          @for (product of inventoryDto; track product.ProductId) {
             <tr>
               <td>{{ product.ProductId }}</td>
               <td>{{ product.ProductName }}</td>
@@ -45,7 +45,7 @@
               <td>{{ product.ReorderStock }}</td>
               <td>
                 <button type="button" class="btn btn-primary">Edit</button>&nbsp;
-                <button type="button" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-danger" (click)="OnDelete(product.ProductId)">Delete</button>
               </td>   
             </tr>
           }
