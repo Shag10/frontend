@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class InventoryComponent {
 
   private httpClient = inject(HttpClient);
+  inventoryDto: any;
 
   inventoryData = {
     productId: '',
@@ -17,6 +18,16 @@ export class InventoryComponent {
     quantityStock: 0,
     reorderStock: 0,
   }
+
+  ngOnInit() {
+    let url = 'https://localhost:7284//api/inventory';
+    this.httpClient.get(url).subscribe(data => {
+      this.inventoryDto = data;
+      console.log(this.inventoryDto);
+    }
+    );
+  }
+
 
   onSubmit() : void {
     let url = 'https://localhost:7284//api/inventory';
