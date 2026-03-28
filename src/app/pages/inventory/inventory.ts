@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-inventory',
@@ -6,4 +7,36 @@ import { Component } from '@angular/core';
   templateUrl: './inventory.html',
   styleUrl: './inventory.css',
 })
-export class InventoryComponent {}
+export class InventoryComponent {
+
+  private httpClient = inject(HttpClient);
+
+  inventoryData = {
+    productId: '',
+    productName: '',
+    quantityStock: 0,
+    reorderStock: 0,
+  }
+
+  onSubmit() : void {
+    let url = 'https://localhost:7284//api/inventory';
+    let httpOptions = {
+      headers: {
+        Authorization: 'Shag123-auth' + localStorage.getItem('token'),
+        'Content-Type': 'application/json'
+      }
+    };
+    this.httpClient.post(url, this.inventoryData, httpOptions).subscribe(
+      {
+        next: v => console.log(v),
+        error: e => console.error(e),
+        complete: () => 
+        {
+          alert('Inventory data submitted successfully!' 
+            + JSON.stringify(this.inventoryData) + ' with token: ' 
+            + localStorage.getItem('token') );
+        }
+      }
+    );
+  }
+}
