@@ -1,17 +1,19 @@
 import { Component, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-inventory',
-  imports: [FormsModule],
+  standalone: true,
+  imports: [FormsModule, CommonModule],
   templateUrl: './inventory.html',
   styleUrl: './inventory.css',
 })
 export class InventoryComponent {
 
   private httpClient = inject(HttpClient);
-  inventoryDto: any;
+  inventoryDto: any = [];
 
   inventoryData = {
     productId: '',
@@ -83,4 +85,7 @@ export class InventoryComponent {
       }
     );
   }
+  trackByProductId(index: number, item: any): string {
+  return item.ProductId;
+}
 }

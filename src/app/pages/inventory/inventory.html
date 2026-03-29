@@ -37,8 +37,7 @@
           </tr>
         </thead>
         <tbody>
-          @for (product of inventoryDto; track product.ProductId) {
-            <tr>
+            <tr *ngFor="let product of inventoryDto; trackBy: trackByProductId">
               <td>{{ product.ProductId }}</td>
               <td>{{ product.ProductName }}</td>
               <td>{{ product.StockQuantity }}</td>
@@ -48,7 +47,6 @@
                 <button type="button" class="btn btn-danger" (click)="OnDelete(product.ProductId)">Delete</button>
               </td>   
             </tr>
-          }
         </tbody>
     </table>
 </div>
