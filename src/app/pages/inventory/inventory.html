@@ -1,10 +1,10 @@
-<div class="row mx-5 col mt-5">
+<div class="row mx-5 col mt-8">
     <h2>Inventory</h2><hr/>
 </div>
 <div class="row mx-5">
   <div class="col">
     <label for="productId" class="form-label">Product Id</label>
-    <input type="text" class="form-control" id="productId" placeholder="Product Id" aria-label="Product Id" [(ngModel)]="inventoryData.productId" name="productId">
+    <input type="text" class="form-control" id="productId" placeholder="Product Id" [disabled]="isUpdate" aria-label="Product Id" [(ngModel)]="inventoryData.productId" name="productId">
   </div>
   <div class="col">
     <label for="productName" class="form-label">Product Name</label>
@@ -43,7 +43,7 @@
               <td>{{ product.StockQuantity }}</td>
               <td>{{ product.ReorderStock }}</td>
               <td>
-                <button type="button" class="btn btn-primary">Edit</button>&nbsp;
+                <button type="button" class="btn btn-primary" (click)="OnUpdate(product)">Edit</button>&nbsp;
                 <button type="button" class="btn btn-danger" (click)="OnDelete(product.ProductId)">Delete</button>
               </td>   
             </tr>

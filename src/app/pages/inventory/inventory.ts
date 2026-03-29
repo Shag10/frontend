@@ -14,6 +14,7 @@ export class InventoryComponent {
 
   private httpClient = inject(HttpClient);
   inventoryDto: any = [];
+  isUpdate: boolean = false;
 
   inventoryData = {
     productId: '',
@@ -33,6 +34,14 @@ export class InventoryComponent {
       console.log(this.inventoryDto);
     }
     );
+    this.inventoryData = {
+      productId: '',
+      productName: '', 
+      stockQuantity: 0,
+      reorderStock: 0
+    };
+    this.isUpdate = false;
+
   }
 
   OnDelete(productId: string) : void {
@@ -63,6 +72,16 @@ export class InventoryComponent {
     );
   }
 
+  OnUpdate(product: any) {
+    this.inventoryData = {
+      productId: product.ProductId,
+      productName: product.ProductName,
+      stockQuantity: product.StockQuantity,
+      reorderStock: product.ReorderStock
+    };
+    this.isUpdate = true;
+  }
+
   OnSubmit() : void {
     let url = 'https://localhost:7284/api/inventory';
     let httpOptions = {
@@ -71,21 +90,37 @@ export class InventoryComponent {
         'Content-Type': 'application/json'
       }
     };
-    this.httpClient.post(url, this.inventoryData, httpOptions).subscribe(
-      {
-        next: v => console.log(v),
-        error: e => console.error(e),
-        complete: () => 
+    if(!this.isUpdate)
+    {
+      this.httpClient.post(url, this.inventoryData, httpOptions).subscribe(
         {
-          alert('Inventory data submitted successfully!' 
-            + JSON.stringify(this.inventoryData) + ' with token: ' 
-            + localStorage.getItem('token') );
-          this.InventoryDetails();
+          next: v => console.log(v),
+          error: e => console.error(e),
+          complete: () => 
+          {
+            alert('Inventory data submitted successfully!' 
+              + JSON.stringify(this.inventoryData) );
+            this.InventoryDetails();
+          }
         }
-      }
-    );
+      );
+    }
+    else
+    {
+      this.httpClient.put(url, this.inventoryData, httpOptions).subscribe(
+        {
+          next: v => console.log(v),
+          error: e => console.error(e),
+          complete: () => 
+          {
+            alert('Inventory data updated successfully!' 
+              + JSON.stringify(this.inventoryData));
+            this.InventoryDetails();
+            }
+          }
+      );
+    }
   }
   trackByProductId(index: number, item: any): string {
-  return item.ProductId;
-}
+  return item.ProductId; }
 }
