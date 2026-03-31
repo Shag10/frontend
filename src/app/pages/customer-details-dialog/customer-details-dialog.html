@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row mx-5 col mt-8">
+        <h2>Customer</h2><hr/>
+    </div>
+    <div class="row mx-5">
+      <div class="col">
+        <label for="customerId" class="form-label">Customer Id</label>
+        <input type="text" class="form-control" id="customerId" placeholder="Customer Id" [disabled]="isUpdate" aria-label="Customer Id" [(ngModel)]="customerData.customerId" name="customerId">
+      </div>
+      <div class="col">
+        <label for="customerName" class="form-label">Customer Name</label>
+        <input type="text" class="form-control" id="customerName" placeholder="Customer Name" aria-label="Customer Name" [(ngModel)]="customerData.customerName" name="customerName">
+      </div>
+    </div>
+</div>
