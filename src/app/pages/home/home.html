@@ -1,7 +1,88 @@
-<main class="container-fluid mt-5"> 
-    <div class="bg-body-tertiary p-5 rounded"> 
-      <h1>ASP .Net Core and Angular 19</h1> 
-      <p class="lead">This example is a quick exercise to illustrate how fixed to top navbar works. As you scroll, it will remain fixed to the top of your browser’s viewport.</p> 
-      <a class="btn btn-lg btn-primary" href="/docs/5.3/components/navbar" role="button">View navbar docs »</a> 
-    </div> 
-</main>
+<div class="home-page">
+
+  <!-- ── Hero ───────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-orb"></div>
+    <div class="hero-orb2"></div>
+    <div class="hero-content">
+      <div class="hero-tag">✦ New Season Arrivals</div>
+      <h1 class="hero-title">Shop the <span class="accent">Future</span><br>of Style</h1>
+      <p class="hero-desc">
+        Discover curated collections of premium products delivered straight to your door.
+        Quality, speed, and style — all in one place.
+      </p>
+      <div class="hero-btns">
+        <button class="btn-primary-hero" routerLink="/products">Shop Now →</button>
+        <button class="btn-outline-hero" routerLink="/collections">View Collections</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-val">50K+</div><div class="stat-lbl">Happy Customers</div></div>
+        <div class="stat"><div class="stat-val">10K+</div><div class="stat-lbl">Products</div></div>
+        <div class="stat"><div class="stat-val">4.9★</div><div class="stat-lbl">Avg Rating</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Marquee Strip ──────────────────────────────── -->
+  <div class="marquee-strip">
+    <div class="marquee-inner">
+      <span class="marquee-item" *ngFor="let item of marqueeItems">{{ item }}</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="marquee-item" *ngFor="let item of marqueeItems">{{ item }}</span>
+    </div>
+  </div>
+
+  <!-- ── Categories ────────────────────────────────── -->
+  <section class="section">
+    <div class="section-label">Browse by</div>
+    <h2 class="section-title">Shop Categories</h2>
+    <div class="cats-grid">
+      <div class="cat-card" *ngFor="let cat of categories" (click)="browseCategory(cat)">
+        <div class="cat-icon">{{ cat.icon }}</div>
+        <div class="cat-name">{{ cat.name }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Featured Products ──────────────────────────── -->
+  <section class="section section-top-0">
+    <div class="section-label">Hand-picked</div>
+    <h2 class="section-title">Featured Products</h2>
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let product of featuredProducts">
+        <div class="product-img">{{ product.emoji }}</div>
+        <div class="product-body">
+          <div class="product-tag">{{ product.category }}</div>
+          <div class="product-name">{{ product.name }}</div>
+          <div class="product-footer">
+            <div>
+              <span class="old-price">{{ product.oldPrice  }}</span>
+              <span class="product-price">{{ product.price }}</span>
+            </div>
+            <button class="add-btn" (click)="addToCart(product)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Promo Banner ───────────────────────────────── -->
+  <div class="promo-banner">
+    <div class="banner-text">
+      <h3>Weekend Flash Sale 🎉</h3>
+      <p>Limited time offer on top picks. Don't miss out — ends Sunday midnight!</p>
+    </div>
+    <div class="banner-badge">UP TO 60% OFF</div>
+    <button class="btn-primary-hero" routerLink="/sale">Grab Deals →</button>
+  </div>
+
+  <!-- ── Trust Strip ────────────────────────────────── -->
+  <div class="trust-strip">
+    <div class="trust-item" *ngFor="let t of trustItems">
+      <div class="trust-icon">{{ t.icon }}</div>
+      <div class="trust-title">{{ t.title }}</div>
+      <div class="trust-sub">{{ t.sub }}</div>
+    </div>
+  </div>
+</div>

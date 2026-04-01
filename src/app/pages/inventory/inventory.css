@@ -1,0 +1,264 @@
+/* ── Page Layout ─────────────────────────────────────── */
+.inv-page {
+  padding: 2rem;
+  background: #f8f7f5;
+  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.page-header { margin-bottom: 2rem; }
+
+.page-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: -0.3px;
+  margin: 0 0 4px;
+}
+
+.page-subtitle {
+  font-size: 13px;
+  color: #999;
+  margin: 0;
+}
+
+/* ── Form Card ───────────────────────────────────────── */
+.form-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 0.5px solid #e5e5e3;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  margin: 0 0 1.25rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #777;
+}
+
+.field input {
+  border: 0.5px solid #e0deda;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: #fff;
+  outline: none;
+  font-family: 'DM Sans', sans-serif;
+  transition: border-color 0.15s;
+}
+
+.field input:focus { border-color: #999; }
+
+.field input:disabled {
+  background: #f8f7f5;
+  color: #bbb;
+  cursor: not-allowed;
+}
+
+/* ── Form Actions ────────────────────────────────────── */
+.form-actions {
+  margin-top: 1.25rem;
+  display: flex;
+  gap: 8px;
+}
+
+.btn-submit {
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover { background: #333; }
+
+.btn-reset {
+  background: #fff;
+  color: #555;
+  border: 0.5px solid #e0deda;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.15s;
+}
+
+.btn-reset:hover { background: #f5f4f2; }
+
+/* ── Table Card ──────────────────────────────────────── */
+.table-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 0.5px solid #e5e5e3;
+  overflow: hidden;
+}
+
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid #f0eeec;
+}
+
+.table-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.count-badge {
+  background: #f3f2f0;
+  color: #666;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.table-responsive { overflow-x: auto; }
+
+/* ── Table ───────────────────────────────────────────── */
+.inv-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.inv-table thead tr { border-bottom: 1px solid #f0eeec; }
+
+.inv-table th {
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  white-space: nowrap;
+}
+
+.inv-table tbody tr {
+  border-bottom: 0.5px solid #f5f4f2;
+  transition: background 0.15s;
+}
+
+.inv-table tbody tr:hover { background: #fafaf9; }
+.inv-table tbody tr:last-child { border-bottom: none; }
+
+.inv-table td {
+  padding: 13px 20px;
+  color: #2a2a2a;
+  vertical-align: middle;
+}
+
+/* ── Cell Styles ─────────────────────────────────────── */
+.id-badge {
+  display: inline-block;
+  background: #f3f2f0;
+  color: #666;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-family: monospace;
+}
+
+.stock-ok {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a7a44;
+}
+
+.stock-low {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #b85b0a;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-ok { background: #1a7a44; }
+.dot-low { background: #b85b0a; }
+
+.reorder-cell { font-size: 13px; color: #888; }
+
+/* ── Action Buttons ──────────────────────────────────── */
+.action-buttons { display: flex; gap: 6px; }
+
+.action-btn {
+  border: 0.5px solid #e5e3e0;
+  border-radius: 8px;
+  background: #fff;
+  padding: 6px 14px;
+  font-size: 12px;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.action-btn:hover { background: #f5f4f2; border-color: #ccc; }
+
+.action-btn.danger:hover {
+  background: #fff0f0;
+  border-color: #f5c2c2;
+  color: #c0392b;
+}
+
+/* ── Empty State ─────────────────────────────────────── */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px !important;
+  color: #bbb;
+  font-size: 14px;
+}
+
+.empty-icon {
+  font-size: 36px;
+  opacity: 0.35;
+  margin-bottom: 10px;
+}
