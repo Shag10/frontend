@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-customer-details-dialog',
@@ -11,28 +12,15 @@ import { FormsModule } from '@angular/forms';
 })
 export class CustomerDetailsDialog {
   private httpClient = inject(HttpClient);
-  CustomerDetailsDto: any = [];
+  modal = inject(NgbActiveModal);
 
   CustomerData = {
     customerId: '',
     customerName: '',
     email: '',
-    phone: '',
+    phoneNumber: '',
     address: '',
     registrationDate: ''
-  }
-
-  ngOnInit() {
-    this.CustomerDetails();
-  }
-
-  CustomerDetails() {
-    let url = 'https://localhost:7284/api/customer';
-    this.httpClient.get(url).subscribe(data => {
-      this.CustomerDetailsDto = data;
-      console.log(this.CustomerDetailsDto);
-    }
-    );
   }
 
   onReset() {
@@ -40,11 +28,12 @@ export class CustomerDetailsDialog {
       customerId: '',
       customerName: '',
       email: '',
-      phone: '',
+      phoneNumber: '',
       address: '',
       registrationDate: ''
     };
   }
+  
   
   onSubmit() {
     let url = 'https://localhost:7284/api/customer';
@@ -54,7 +43,7 @@ export class CustomerDetailsDialog {
         'Content-Type': 'application/json'
       }
     };
-    this.httpClient.put(url, this.CustomerData, httpOptions).subscribe(
+    this.httpClient.post(url, this.CustomerData, httpOptions).subscribe(
         {
           next: v => console.log(v),
           error: e => console.error(e),
@@ -62,7 +51,7 @@ export class CustomerDetailsDialog {
           {
             alert('Customer data updated successfully!' 
               + JSON.stringify(this.CustomerData));
-            this.CustomerDetails();
+            this.modal.close();
             }
           }
       );

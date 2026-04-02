@@ -20,15 +20,27 @@
             <th>Customer ID</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Phone</th>
+            <th>Phone Number</th>
             <th>Address</th>
             <th>Registration Date</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <!-- Empty state -->
-         
+          <tr *ngFor="let customer of customerDetialsDto">
+            <td>{{ customer.CustomerId }}</td>
+            <td>{{ customer.CustomerName }}</td>
+            <td>{{ customer.Email }}</td>
+            <td>{{ customer.PhoneNumber }}</td>
+            <td>{{ customer.Address }}</td>
+            <td>{{ customer.RegistrationDate | date:'mediumDate' }}</td>
+            <td>
+              <div class="action-buttons">
+                <button class="action-btn" (click)="OnUpdate(customer)">Edit</button>
+                <button class="action-btn danger" (click)="OnDelete(customer.CustomerId)">Delete</button>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
